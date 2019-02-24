@@ -1,7 +1,7 @@
 package com.sellics.keywordrate.controller;
 
 import com.sellics.keywordrate.EvaluateResponse;
-import com.sellics.keywordrate.service.api.EvaluationService;
+import com.sellics.keywordrate.service.evaluation.api.EvaluationService;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;

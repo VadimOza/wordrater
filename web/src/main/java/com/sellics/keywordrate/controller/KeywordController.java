@@ -1,7 +1,7 @@
 package com.sellics.keywordrate.controller;
 
 import com.sellics.keywordrate.EvaluateResponse;
-import com.sellics.keywordrate.service.api.EvaluationService;
+import com.sellics.keywordrate.service.evaluation.api.EvaluationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

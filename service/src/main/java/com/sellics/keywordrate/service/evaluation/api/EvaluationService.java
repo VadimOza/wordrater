@@ -1,4 +1,4 @@
-package com.sellics.keywordrate.service.api;
+package com.sellics.keywordrate.service.evaluation.api;
 
 import com.sellics.keywordrate.EvaluateResponse;
 
