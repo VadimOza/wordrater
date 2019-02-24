@@ -1,0 +1,12 @@
+= Keyword operations
+
+== Evaluate keyword
+
+=== Request example
+include::{snippets}/evaluate/http-request.adoc[]
+
+=== Response example
+include::{snippets}/evaluate/http-response.adoc[]
+=== Response  fields
+include::{snippets}/evaluate/response-fields.adoc[]
+

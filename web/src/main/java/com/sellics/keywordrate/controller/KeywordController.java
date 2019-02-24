@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import static com.sellics.keywordrate.controller.KeywordController.BASE_URL;
+import static com.sellics.keywordrate.controller.KeywordController.Parameter.KEYWORD;
 
 @RestController
 @RequestMapping(BASE_URL)
@@ -18,10 +19,14 @@ public class KeywordController {
 
     static final String BASE_URL = "/estimate";
 
+    static class Parameter{
+        static final String KEYWORD = "keyword";
+    }
+
     private final EvaluationService service;
 
     @GetMapping
-    public ResponseEntity<EvaluateResponse> evaluateKeyword(@RequestParam("keyword") String keyword) {
+    public ResponseEntity<EvaluateResponse> evaluateKeyword(@RequestParam(KEYWORD) String keyword) {
         return ResponseEntity.ok(service.evaluate(keyword));
     }
 }

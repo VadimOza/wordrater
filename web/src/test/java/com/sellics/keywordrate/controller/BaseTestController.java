@@ -24,7 +24,7 @@ public abstract class BaseTestController {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Rule
-    public final JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation("target/snippets");
+    public final JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation("target/generated-snippets");
 
     protected MockMvc client;
 
@@ -33,7 +33,7 @@ public abstract class BaseTestController {
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 
         this.client = MockMvcBuilders.standaloneSetup(controllerToTest())
-                .apply(documentationConfiguration(this.restDocumentation).uris().withHost("http://staging.tokabot.io").withPort(8088))
+                .apply(documentationConfiguration(this.restDocumentation).uris().withHost("sellics.io"))
                 .build();
 
         configure();
