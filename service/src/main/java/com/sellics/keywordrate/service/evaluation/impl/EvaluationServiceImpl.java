@@ -3,7 +3,6 @@ package com.sellics.keywordrate.service.evaluation.impl;
 import com.sellics.keywordrate.EvaluateResponse;
 import com.sellics.keywordrate.model.Keyword;
 import com.sellics.keywordrate.service.agreggator.PrefixLengthAggregator;
-import com.sellics.keywordrate.service.agreggator.impl.InMemoryPrefixLengthAggregator;
 import com.sellics.keywordrate.service.amazon.KeywordRequester;
 import com.sellics.keywordrate.service.evaluation.api.EvaluationService;
 import lombok.RequiredArgsConstructor;
@@ -18,11 +17,10 @@ import java.util.Set;
 public class EvaluationServiceImpl implements EvaluationService {
 
     private final KeywordRequester requester;
+    private final PrefixLengthAggregator aggregator;
 
     @Override
     public EvaluateResponse evaluate(String keyword) {
-        PrefixLengthAggregator aggregator = new InMemoryPrefixLengthAggregator();
-
         List<Keyword> collect = requester.requestKeywords(getPossiblePrefixes(keyword));
 
         Integer score = aggregator.computeWordRelevance(collect, keyword);
@@ -33,6 +31,10 @@ public class EvaluationServiceImpl implements EvaluationService {
                 .build();
     }
 
+    /**
+     * @param keyword
+     * @return all prefixes for it e.g. 'test' => 't','te','tes','test'
+     */
     private Set<String> getPossiblePrefixes(String keyword) {
         Set<String> prefixes = new HashSet<>();
 

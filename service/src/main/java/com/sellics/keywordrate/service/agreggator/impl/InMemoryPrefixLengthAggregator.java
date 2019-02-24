@@ -3,28 +3,28 @@ package com.sellics.keywordrate.service.agreggator.impl;
 import com.sellics.keywordrate.model.Keyword;
 import com.sellics.keywordrate.service.agreggator.PrefixLengthAggregator;
 import com.sellics.keywordrate.service.agreggator.helper.ScoreNumberCalculator;
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
+@Component
 public class InMemoryPrefixLengthAggregator implements PrefixLengthAggregator {
 
-    private Map<String, Integer> prefixLengthStore = new ConcurrentHashMap<>();
-
     @Override
-    public Integer computeWordRelevance(Collection<Keyword> keywordResponses, String keyword) {
-        keywordResponses.forEach(this::addItem);
+    public Integer computeWordRelevance(Collection<Keyword> keywordResponses, String keywordText) {
+        Map<String, Integer> prefixLengthStore = new ConcurrentHashMap<>();
 
-        List<Integer> prefixLengths = getPrefixLengthFor(keyword);
+        keywordResponses.stream()
+                .filter(keyword -> keyword.getValue().contains(keywordText))
+                .forEach(keyword -> addItem(keyword, prefixLengthStore));
 
-        return ScoreNumberCalculator.calculateScore(prefixLengths);
+        return ScoreNumberCalculator.calculateScore(prefixLengthStore.values());
     }
 
-    private void addItem(Keyword keyword) {
+    private void addItem(Keyword keyword, Map<String, Integer> prefixLengthStore) {
         String value = keyword.getValue();
         Optional<Integer> wordWithWeight = Optional.ofNullable(prefixLengthStore.get(value));
 
@@ -33,12 +33,5 @@ public class InMemoryPrefixLengthAggregator implements PrefixLengthAggregator {
         if (wordWithWeight.isPresent())
             prefixLengthStore.put(value, Math.min(wordWithWeight.get(), prefixLength));
         else prefixLengthStore.put(value, prefixLength);
-    }
-
-    private List<Integer> getPrefixLengthFor(String keyword) {
-        return prefixLengthStore.entrySet().stream()
-                .filter(entry -> entry.getKey().contains(keyword))
-                .map(Map.Entry::getValue)
-                .collect(Collectors.toList());
     }
 }

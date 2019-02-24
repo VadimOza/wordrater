@@ -21,7 +21,7 @@ public class KeywordController {
     private final EvaluationService service;
 
     @GetMapping
-    public ResponseEntity<EvaluateResponse> evaluateKeywork(@RequestParam("keyword") String keyword) {
+    public ResponseEntity<EvaluateResponse> evaluateKeyword(@RequestParam("keyword") String keyword) {
         return ResponseEntity.ok(service.evaluate(keyword));
     }
 }

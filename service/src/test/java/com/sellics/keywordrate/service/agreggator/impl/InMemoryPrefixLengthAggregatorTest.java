@@ -2,16 +2,12 @@ package com.sellics.keywordrate.service.agreggator.impl;
 
 
 import com.sellics.keywordrate.model.Keyword;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.test.util.ReflectionTestUtils;
 
 import java.util.Arrays;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,16 +17,8 @@ public class InMemoryPrefixLengthAggregatorTest {
     @InjectMocks
     private InMemoryPrefixLengthAggregator aggregator;
 
-    @Mock
-    private Map<String, Integer> mockMap;
-
     private String keywordText = "text";
-    private String prefix = "te";
-
-    @Before
-    public void setUp() {
-        ReflectionTestUtils.setField(aggregator, "keywordRate", mockMap);
-    }
+    private String prefix = "t";
 
     @Test
     public void addPopularKeywordTest() {
