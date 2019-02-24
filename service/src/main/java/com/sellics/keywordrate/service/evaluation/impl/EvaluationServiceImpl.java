@@ -5,7 +5,6 @@ import com.sellics.keywordrate.model.Keyword;
 import com.sellics.keywordrate.service.agreggator.PrefixLengthAggregator;
 import com.sellics.keywordrate.service.agreggator.impl.InMemoryPrefixLengthAggregator;
 import com.sellics.keywordrate.service.amazon.KeywordRequester;
-import com.sellics.keywordrate.service.amazon.protocol.AmazonKeywordResponse;
 import com.sellics.keywordrate.service.evaluation.api.EvaluationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

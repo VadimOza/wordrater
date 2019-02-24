@@ -2,8 +2,6 @@ package com.sellics.keywordrate.service.agreggator.impl;
 
 
 import com.sellics.keywordrate.model.Keyword;
-import com.sellics.keywordrate.service.amazon.protocol.AmazonKeywordResponse;
-import com.sellics.keywordrate.service.amazon.protocol.AmazonKeywordResponseTestFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

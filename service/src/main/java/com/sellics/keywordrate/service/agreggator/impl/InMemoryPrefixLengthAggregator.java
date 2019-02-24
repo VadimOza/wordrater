@@ -3,12 +3,11 @@ package com.sellics.keywordrate.service.agreggator.impl;
 import com.sellics.keywordrate.model.Keyword;
 import com.sellics.keywordrate.service.agreggator.PrefixLengthAggregator;
 import com.sellics.keywordrate.service.agreggator.helper.ScoreNumberCalculator;
-import com.sellics.keywordrate.service.amazon.protocol.AmazonKeywordResponse;
-import com.sellics.keywordrate.service.amazon.protocol.SuggestionsItem;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 

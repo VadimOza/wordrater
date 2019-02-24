@@ -1,9 +1,6 @@
 package com.sellics.keywordrate.service.amazon.protocol;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-
-import javax.annotation.Generated;
 
 @Data
 public class ScopesItem {

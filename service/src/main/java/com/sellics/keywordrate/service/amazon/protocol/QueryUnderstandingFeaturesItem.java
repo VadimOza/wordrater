@@ -1,11 +1,8 @@
 package com.sellics.keywordrate.service.amazon.protocol;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import javax.annotation.Generated;
+import java.util.List;
 
 @Data
 public class QueryUnderstandingFeaturesItem {

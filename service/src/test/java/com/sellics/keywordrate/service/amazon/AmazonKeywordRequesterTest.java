@@ -1,8 +1,6 @@
 package com.sellics.keywordrate.service.amazon;
 
 import com.sellics.keywordrate.model.Keyword;
-import com.sellics.keywordrate.service.amazon.protocol.AmazonKeywordResponse;
-import com.sellics.keywordrate.service.amazon.protocol.SuggestionsItem;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

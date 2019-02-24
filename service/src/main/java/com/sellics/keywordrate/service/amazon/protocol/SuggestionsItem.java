@@ -1,10 +1,8 @@
 package com.sellics.keywordrate.service.amazon.protocol;
 
-import java.util.List;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
-import javax.annotation.Generated;
+import java.util.List;
 
 @Data
 @Builder
